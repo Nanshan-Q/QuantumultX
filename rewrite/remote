@@ -1,12 +1,19 @@
 # > 百度贴吧
-^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/getAdInfo url reject
-^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/splashSchedule url reject 
+# hostname = tiebac.baidu.com
+^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
+^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/(b\/ad\/adBid|f\/(frs\/(page|threadlist|generalTabList)|ad\/getFeedAd|pb\/page|excellent\/personalized))\?cmd url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
+
 
 # > 酷安
-^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch url reject-dict
+# hostname = api.coolapk.com
+# ^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch url reject-dict
+^https?:\/\/api\.coolapk\.com\/v6\/feed\/(detail|replyList)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js
+^https?:\/\/api\.coolapk\.com\/v6\/main\/(dataList|indexV8|init) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js
+^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js
 
 # > 威锋
-^https?:\/\/api\.wfdata\.club\/v2\/yesfeng\/(infoCenterAd|yesList) url reject
+# hostname = api.wfdata.club
+^https?:\/\/api\.wfdata\.club\/v\d\/yesfeng\/(infoCenterAd|yesList) url reject
 
 
 
